@@ -17,8 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int gridCounter = 0;
   int tileCounter = 0;
   double result;
-  int num = 0;
-
+  int num = 4;
 
 
   @override
@@ -27,15 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Widget _buildGrid(int index){
 
 
-
-      return index % 4 == 0 && index != 0 ?
-            NativeAdmobBannerView(
-              adUnitID: "ca-app-pub-3940256099942544/2247696110", // Test
-              style: BannerStyle.light,
-              showMedia: true,
-              contentPadding: const EdgeInsets.all(8),
-             )
-             : Container(
+      return Container(
               color: Colors.green,
               child: Center(
                 child: Text("$index"),
@@ -55,12 +46,15 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Grid with Native Ad'),
+        centerTitle: true,
+      ),
       body: Container(
         child: StaggeredGridView.countBuilder(
             crossAxisSpacing: 3.0,
             mainAxisSpacing: 3.0,
-            itemCount: 25,
+            itemCount: 20,
             itemBuilder: (context, index){
 
               return _buildGrid(index);
@@ -70,17 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
           staggeredTileBuilder: (int index){
 
 
-
-              return index % 4 == 0 && index != 0
-                  ? StaggeredTile.count(
-                2,
-                2,
-              )
-              :
-              StaggeredTile.count(
-                  1,
-                  1,
-                );
+              return StaggeredTile.count(
+                1,
+                1,
+              );
           },
           ),
 
