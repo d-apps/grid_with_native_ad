@@ -14,8 +14,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final nativeAdmob = NativeAdmob();
   int counter = 0;
-  int gridCounter = 0;
-  int tileCounter = 0;
   double result;
   int num = 4;
 
@@ -27,11 +25,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
       return Container(
-              color: Colors.green,
-              child: Center(
-                child: Text("$index"),
-                ),
-              );
+        color: Colors.green,
+        child: Center(
+          child: Text("$index"),
+        ),
+      );
 
       /*
 
@@ -63,12 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisCount: 2,
           staggeredTileBuilder: (int index){
 
-
               return StaggeredTile.count(
-                1,
-                1,
+                  1,
+                  1
               );
-          },
+            },
           ),
 
         )
